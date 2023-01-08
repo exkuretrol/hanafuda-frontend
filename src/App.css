@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* Card */
+    .card {
+        @apply relative;
+    }
+
+    .card > .card-face, .card-back {
+        @apply absolute inset-0;
+    }
+
+    :is(.card-face, .card-back) {
+        @apply w-[100px] h-[164px] ease-in duration-300;
+    }
+
+    .card-back {
+        @apply bg-emerald-500 border-emerald-700 text-emerald-300 font-bold grid place-items-center;
+    }
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@layer utilities {
+    /* Variables */
+    :root {
+        --90deg: rotateY(90deg);
+        --0deg: rotateY(0deg);
+        --delay: 300ms;
+    }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+    /* Card */
+    .card-back {
+        transform: var(--0deg);
+        transition-delay: var(--delay);
+    }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+    .selected .card-back{
+        transform: var(--90deg);
+        transition-delay: 0s;
+    }
 
-.App-link {
-  color: #61dafb;
-}
+    .card-face {
+        transform: var(--90deg);
+        transition-delay: 0s;
+    }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    .selected .card-face {
+        transform: var(--0deg);
+        transition-delay: var(--delay);
+    }
 }
