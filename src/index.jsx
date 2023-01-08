@@ -7,7 +7,7 @@ import App from "./App";
 import Home from "./routes/Home";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import Debug from "./components/Debug";
+// import Debug from "./components/Debug";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
