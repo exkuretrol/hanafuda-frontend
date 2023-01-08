@@ -1,4 +1,6 @@
-/public/assets/**.png
+.DS_Store
+
 /node_modules
 /.vscode
 /build
+Debug.jsx
